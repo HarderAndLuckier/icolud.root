@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.icloud.dao.user.IUserDao">
+    <insert id="addUser" parameterType="com.icloud.model.user.UserVO">
+        insert into user_t
+        (
+            user_id,
+            user_name,
+            password
+        )
+        values
+        (
+            #{user.userId,jdbcType=VARCHAR},
+            #{user.userName,jdbcType=VARCHAR},
+            #{user.password,jdbcType=VARCHAR}
+        )
+    </insert>
+    
+    <resultMap id="userList" type="com.icloud.model.user.UserVO">
+        <id column="user_Id" property="userId" />
+        <result column="user_Name" property="userName" />
+        <result column="password" property="password" />
+    </resultMap>
+    
+    <select id="getUserList" resultMap="userList">
+     	select *  from  user_t
+    </select>
+</mapper>

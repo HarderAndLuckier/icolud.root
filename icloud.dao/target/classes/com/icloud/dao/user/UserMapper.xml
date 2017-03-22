@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.icloud.dao.user.IUser2Dao">
+    <insert id="addUser" parameterType="com.icloud.model.user.User" useGeneratedKeys="true" keyProperty="id">
+        insert into t_user
+        (
+            username,
+            birthday,
+            sex,
+            address
+        )
+        values
+        (
+            #{userNaem,jdbcType=VARCHAR},
+            #{birthday,jdbcType=DATE},
+            #{sex,jdbcType=VARCHAR},
+            #{address,jdbcType=VARCHAR}
+        )
+    </insert>
+</mapper>
